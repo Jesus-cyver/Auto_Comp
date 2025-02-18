@@ -1,0 +1,16 @@
+%option noyywrap
+%{
+	#include<stdio.h>
+%}
+DIGIT [0-9]
+OPERATOR [+*/-]
+%%
+{DIGIT}+	printf("N-mero: %s/n", yytext);
+{OPERATOR}	printf("operador: %s/n",yytext);
+.
+%%
+int main()
+{
+	yylex();
+	return 0;
+}
